@@ -2,20 +2,18 @@ service: psycopg2-lambda-layer
 
 provider:
   name: aws
-  runtime: python3.6
+  runtime: python3.9
+  region: eu-west-1
   profile: jb
-
-# you can overwrite defaults here
-#  stage: dev
-  region: eu-central-1
+  stage: prod
 
 layers:
-  psycopg2-py36:
+  psycopg2-py38:
     description: "psycopg2 python postgresql client library."
     buildScript: ./build.sh
     path: layer
     compatibleRuntimes:
-      - python3.6
+      - python3.9
     allowedAccounts:
       - '*'
     retain: true
